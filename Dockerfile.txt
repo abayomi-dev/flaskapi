@@ -1,0 +1,9 @@
+FROM python:3.8-alpine AS Builder
+RUN mkdir /code
+WORKDIR /code 
+COPY req.txt req.txt
+RUN pip install -r req.txt 
+COPY . .
+EXPOSE 5000
+CMD ["python", "DemoFlask.py"]
+ 
